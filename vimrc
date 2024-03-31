@@ -2,6 +2,7 @@ unlet! skip_defaults_vim
 "https://stackoverflow.com/questions/68727274/problems-with-vim-go-and-vimrc
 source $VIMRUNTIME/defaults.vim
 
+set visualbell
 set tabstop=4
 set shiftwidth=4
 set expandtab
