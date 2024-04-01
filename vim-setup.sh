@@ -39,5 +39,15 @@ if [[ ! -d ~/.vim/pack/plugins/start ]]; then
     vim -c "CocInstall coc-sh";
 
     vim -c "helptags ALL"
+
+    # some tricks to have coc-pyright play nice with conda
+    python_shim=/usr/local/bin/python-for-coc-pyright;
+    sudo touch $python_shim;
+    sudo chown $USER:$USER $python_shim;
+    echo -e "#"'!'"/usr/bin/env bash\npython \"\$@\"" > $python_shim;
+    sudo chmod u+x $python_shim;
+
+    # create coc-settings
+    echo "{ \"python.pythonPath\":\"/usr/local/bin/python-for-coc-pyright\" }" > ~/.vim/coc-settings.json
 fi
 
